@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Upload Demo</title>
+</head>
+<body>
+    <style>
+        html.wait, html.wait * {
+            cursor: wait !important;
+        }
+    </style>
+<div>
+    <form id="uploadForm">
+        <div>
+            <input type="file" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
+        </div>
+        <div style="margin-top: 10px;color:red;">
+            <input name="description" placeholder="Description" />
+        </div>
+    </form>
+    <button onclick="doUpload();" style="margin-top:10px">Upload</button>
+<p id="displayJson" style="background-color:powderblue;overflow-wrap: break-word;">
+</p>
+</div>
+    <script>
+        function doUpload() {
+            let form = document.getElementById("uploadForm");
+            Upload("http://localhost:5000/api/ExcelDataImport", form, { clientDate: Date() })
+                .then(xhr => {
+				alert(xhr.response);
+document.getElementById("displayJson").innerHTML=xhr.response
+		})
+                .catch(xhr => alert(xhr.statusText));
+        }
+
+        async function Upload(url, form, extraData) {
+            waitCursor();
+
+            let xhr = new XMLHttpRequest();
+
+            return new Promise((resolve, reject) => {
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            readyCursor();
+                            resolve(xhr);
+                        } else {
+                            readyCursor();
+                            reject(xhr);
+                        }
+                    }
+                };
+
+                xhr.open("POST", url, true);
+                let formData = new FormData(form);
+                Object.entries(extraData).forEach(([key, value]) => formData.append(key, value));
+                xhr.send(formData);
+            });
+        }
+
+        function waitCursor() {
+            document.getElementsByTagName("html")[0].classList.add("wait");
+        }
+
+        function readyCursor() {
+            document.getElementsByTagName("html")[0].classList.remove("wait");
+        }
+    </script>
+</body>
+</html>
