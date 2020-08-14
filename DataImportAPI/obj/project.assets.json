@@ -111,11 +111,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\EMASCO\\Documents\\API\\DataImportAPI\\DataImportAPI.csproj",
+      "projectUniqueName": "C:\\Users\\EMASCO\\Documents\\API\\DataImport\\DataImportAPI\\DataImportAPI.csproj",
       "projectName": "DataImportAPI",
-      "projectPath": "C:\\Users\\EMASCO\\Documents\\API\\DataImportAPI\\DataImportAPI.csproj",
+      "projectPath": "C:\\Users\\EMASCO\\Documents\\API\\DataImport\\DataImportAPI\\DataImportAPI.csproj",
       "packagesPath": "C:\\Users\\EMASCO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\EMASCO\\Documents\\API\\DataImportAPI\\obj\\",
+      "outputPath": "C:\\Users\\EMASCO\\Documents\\API\\DataImport\\DataImportAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\ProgramData\\Xamarin\\NuGet\\",

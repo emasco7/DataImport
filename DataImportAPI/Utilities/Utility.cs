@@ -6,5 +6,6 @@ namespace DataImportAPI.Utilities
         public static string EmptyWorkbook="You uploaded an empty workbook";
         public static string InvalidFormat = "please upload a valid excel format";
         public static string SessionData = "excel data";
+        public static string UnableToOpenFile = "Unable to open file";
     }
 }
