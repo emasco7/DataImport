@@ -36,6 +36,7 @@ namespace DataImportAPI
             });
 
             services.AddScoped<IExcelReader, ExcelReader>();
+            services.AddScoped<IBudgetSheetReader, BudgetSheetReader>();
             //services.AddDistributedMemoryCache();
 
             
