@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataImportAPI.Utilities.ExcelUtilities;
+using DataImportAPI.Utilities.ExcelUtilities.ExcelWriterUtility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,7 +37,10 @@ namespace DataImportAPI
             });
 
             services.AddScoped<IExcelReader, ExcelReader>();
+            services.AddScoped<IDailyReportWriter, DailyReportWriter>();
+            services.AddScoped<IDailyReportWriterWithStyleSheet, DailyReportWriterWithStyleSheet>();
             services.AddScoped<IBudgetSheetReader, BudgetSheetReader>();
+            services.AddScoped<IProductionDataSheetWriter, ProductionDataSheetWriter>();
             //services.AddDistributedMemoryCache();
 
             
